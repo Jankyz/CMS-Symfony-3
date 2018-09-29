@@ -70,6 +70,12 @@ class users
      */
     private $pass;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="registeredAt", type="datetime")
+     */
+    private $registeredat;
 
     /**
      * Get id
@@ -247,6 +253,30 @@ class users
     public function getPass()
     {
         return $this->pass;
+    }
+
+    /**
+     * Set registeredAt
+     *
+     * @param \DateTime $registeredat
+     *
+     * @return users
+     */
+    public function setRegisteredAt($registeredat)
+    {
+        $this->registeredat = $registeredat;
+
+        return $this;
+    }
+
+    /**
+     * Get registeredAt
+     *
+     * @return \DateTime
+     */
+    public function getRegisteredAt()
+    {
+        return $this->registeredat;
     }
 }
 
