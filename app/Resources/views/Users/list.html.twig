@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Lista użytkowników</h1>
+
+    {% for user in list %}
+        <div class="card">
+            <h5 class="card-header">{{ user.id }}# {{ user.name }} {{ user.surname }}</h5>
+            <div class="card-body">
+                <h5 class="card-title">{{ user.position }}</h5>
+                <p class="card-text">Login:  {{ user.username }}</p>
+                <a href="{{ url('user_details', {"id":user.id}) }}" class="btn btn-primary">Szczegóły</a>
+            </div>
+        </div>
+    {% else %}
+        <div class="card">
+            <h5 class="card-header">Uwaga!</h5>
+            <div class="card-body">
+                <p class="card-text alert-warning">W bazie danych nie ma żadnego użytkownika!</p>
+                <a href="{{ url('user_add') }}" class="btn btn-primary">Zarejestruj się</a>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
